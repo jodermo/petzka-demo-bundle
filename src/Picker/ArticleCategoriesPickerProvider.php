@@ -1,21 +1,22 @@
 <?php
 
+
 /*
- * News Categories bundle for Contao Open Source CMS.
+ * This file is part of [petzka/demo-bundle].
  *
- * @copyright  Copyright (c) 2017, Codefog
- * @author     Codefog <https://codefog.pl>
- * @license    MIT
+ * (c) Moritz Petzka
+ *
+ * @license LGPL-3.0-or-later
  */
 
-namespace Codefog\NewsCategoriesBundle\Picker;
+namespace Petzka\DemoBundle\Picker;
 
-use Codefog\NewsCategoriesBundle\PermissionChecker;
+use Petzka\DemoBundle\PermissionChecker;
 use Contao\CoreBundle\Picker\AbstractPickerProvider;
 use Contao\CoreBundle\Picker\DcaPickerProviderInterface;
 use Contao\CoreBundle\Picker\PickerConfig;
 
-class NewsCategoriesPickerProvider extends AbstractPickerProvider implements DcaPickerProviderInterface
+class ArticleCategoriesPickerProvider extends AbstractPickerProvider implements DcaPickerProviderInterface
 {
     /**
      * @var PermissionChecker
@@ -35,7 +36,7 @@ class NewsCategoriesPickerProvider extends AbstractPickerProvider implements Dca
      */
     public function getDcaTable()
     {
-        return 'tl_news_category';
+        return 'tl_article_category';
     }
 
     /**
@@ -65,11 +66,11 @@ class NewsCategoriesPickerProvider extends AbstractPickerProvider implements Dca
      */
     public function getUrl(PickerConfig $config)
     {
-        // Set the news categories root in session for further reference in onload_callback (see #137)
+        // Set the article categories root in session for further reference in onload_callback (see #137)
         if (\is_array($rootNodes = $config->getExtra('rootNodes'))) {
-            $_SESSION['NEWS_CATEGORIES_ROOT'] = $rootNodes;
+            $_SESSION['ARTICLE_CATEGORIES_ROOT'] = $rootNodes;
         } else {
-            unset($_SESSION['NEWS_CATEGORIES_ROOT']);
+            unset($_SESSION['ARTICLE_CATEGORIES_ROOT']);
         }
 
         return parent::getUrl($config);
@@ -88,7 +89,7 @@ class NewsCategoriesPickerProvider extends AbstractPickerProvider implements Dca
      */
     public function getName()
     {
-        return 'newsCategoriesPicker';
+        return 'articleCategoriesPicker';
     }
 
     /**
@@ -100,7 +101,7 @@ class NewsCategoriesPickerProvider extends AbstractPickerProvider implements Dca
             return false;
         }
 
-        return 'newsCategories' === $context && ($this->permissionChecker->canUserManageCategories() || $this->permissionChecker->canUserAssignCategories());
+        return 'articleCategories' === $context && ($this->permissionChecker->canUserManageCategories() || $this->permissionChecker->canUserAssignCategories());
     }
 
     /**
@@ -122,6 +123,6 @@ class NewsCategoriesPickerProvider extends AbstractPickerProvider implements Dca
      */
     protected function getRouteParameters(PickerConfig $config = null)
     {
-        return ['do' => 'news', 'table' => 'tl_news_category'];
+        return ['do' => 'article', 'table' => 'tl_article_category'];
     }
 }

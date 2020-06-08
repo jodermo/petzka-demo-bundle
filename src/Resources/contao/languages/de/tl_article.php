@@ -10,3 +10,6 @@
 
 $GLOBALS['TL_LANG']['tl_article']['article_custom_value'] = ['Custom Value', 'From Petzka-Demo-Boundle'];
 
+$GLOBALS['TL_LANG']['tl_article']['categories'] = ['Kategorien', 'Eine oder mehrere Kategorien auswählen.'];
+
+$GLOBALS['TL_LANG']['tl_article']['category_legend'] = 'Artikel-Kategorien';

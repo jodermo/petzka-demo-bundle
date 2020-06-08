@@ -1,7 +1,7 @@
 # Contao 4 - Demo Bundle
 
 
-Add Bundle as Git-Repository to Composer<br>
+## Add Bundle as Git-Repository<br>
 add code to \<contao root path\>/composer.json
 ```json
 {
@@ -19,6 +19,26 @@ add code to \<contao root path\>/composer.json
     ...
 }
 ```
+
+## Add Bundle as local Repository<br>
+add code to \<contao root path\>/composer.json
+```json
+{
+    ...,
+    "repositories": [
+        {
+            "type": "path",
+            "url": "repositories/petzka-demo-bundle"
+        }
+    ],
+    "require": {
+        ...,
+        "petzka/demo-bundle": "master"
+    },
+    ...
+}
+```
+
 
 ## local configuration
 

@@ -8,7 +8,6 @@
  * @license LGPL-3.0-or-later
  */
 
-
 namespace Petzka\DemoBundle\ContaoManager;
 
 use Contao\CoreBundle\ContaoCoreBundle;

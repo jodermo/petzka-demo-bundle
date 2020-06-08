@@ -1,9 +1,9 @@
 <?php
 
 $header = <<<EOF
-This file is part of [package name].
+This file is part of [petzka/demo-bundle].
 
-(c) John Doe
+(c) Moritz Petzka
 
 @license LGPL-3.0-or-later
 EOF;

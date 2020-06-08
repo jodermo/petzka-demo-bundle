@@ -12,15 +12,14 @@
     ],
     "require": {
         "php": "^5.6 || ^7.0",
-        "contao/core-bundle": "4.9.*",
+        "contao/core-bundle": "*",
         "symfony/framework-bundle": "*"
     },
     "conflict": {
-        "contao/core": "*",
-        "contao/manager-plugin": "<2.0 || >=3.0"
+        "contao/core": "*"
     },
     "require-dev": {
-        "contao/manager-plugin": "^2.0",
+        "contao/manager-plugin": "*",
         "doctrine/doctrine-cache-bundle": "^1.3",
         "friendsofphp/php-cs-fixer": "^2.12",
         "php-http/guzzle6-adapter": "^1.1",
@@ -29,7 +28,7 @@
         "symfony/phpunit-bridge": "^3.2"
     },
     "extra": {
-        "contao-manager-plugin": "Contao\\PetzkaDemoBundle\\ContaoManager\\Plugin"
+        "contao-manager-plugin": "Petzka\\DemoBundle\\ContaoManager\\Plugin"
     },
     "autoload": {
         "psr-4": {

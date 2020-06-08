@@ -1,6 +1,5 @@
 # Contao 4 - Demo Bundle
 
-
 ## Add Bundle as Git-Repository<br>
 add code to \<contao root path\>/composer.json
 ```json
@@ -33,6 +32,31 @@ add code to \<contao root path\>/composer.json
 }
 ```
 
+
+
+# Customize
+
+
+#### Customize this files:
+    .php_cs.php
+    composer.json
+    phpunit.xml.dist
+    
+Then rename the following files and/or the references to DemoBundle in the following files:
+
+    src/ContaoManager/Plugin.php
+    src/DependencyInjection/PetzkaDemoExtension.php
+    src/PetzkaDemoBundle.php
+    tests/PetzkaDemoBundleTest.php
+
+#### I copied some stuff from here
+• Contao Hello World Bundle Tutorial:<br>
+    [gist.github.com/joergmoldenhauer/contao-hello-world-bundle-tutorial.md](https://gist.github.com/joergmoldenhauer/90fa0c9c6af2c7a36bdbc2d039095142)<br>
+• Contao 4 skeleton bundle:<br>
+    [github.com/contao/skeleton-bundle](https://github.com/contao/skeleton-bundle)
+
+
+
 # Local Contao CMS
 #### XAMPP (Windows 10):
 
@@ -40,7 +64,7 @@ add code to \<contao root path\>/composer.json
 change following lines in php.ini
 ```
 file_uploads = On (ca. Zeile 833)
-upload_temp_dir = "C:\Xampp\tmp" (ca. Zeile 838)
+upload_temp_dir = "C:\xamp\tmp" (ca. Zeile 838)
 upload_max_filesize = 256M (ca. Zeile 842)
 allow_url_fopen = On (ca. Zeile 853)
 max_execution_time = 360 (ca. Zeile 386)

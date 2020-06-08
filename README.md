@@ -5,7 +5,6 @@
 add code to \<contao root path\>/composer.json
 ```json
 {
-    ...,
     "repositories": [
         {
             "type": "git",
@@ -13,10 +12,8 @@ add code to \<contao root path\>/composer.json
         }
     ],
     "require": {
-        ...,
-        "petzka/demo-bundle": "master"
-    },
-    ...
+        "petzka/demo-bundle": "dev-master"
+    }
 }
 ```
 
@@ -24,7 +21,6 @@ add code to \<contao root path\>/composer.json
 add code to \<contao root path\>/composer.json
 ```json
 {
-    ...,
     "repositories": [
         {
             "type": "path",
@@ -32,21 +28,16 @@ add code to \<contao root path\>/composer.json
         }
     ],
     "require": {
-        ...,
-        "petzka/demo-bundle": "master"
-    },
-    ...
+        "petzka/demo-bundle": "dev-master"
+    }
 }
 ```
 
+# Local Contao CMS
+#### XAMPP (Windows 10):
 
-## local configuration
-
-### Windows 10 + XAMPP:
-
-#### PHP configuration
+##### PHP configuration
 change following lines in php.ini
-
 ```
 file_uploads = On (ca. Zeile 833)
 upload_temp_dir = "C:\Xampp\tmp" (ca. Zeile 838)
@@ -58,17 +49,6 @@ post_max_size = 128M (ca. Zeile 690)
 extension=intl (ca. Zeile 917) das Semikolon wegnehmen
 extension=soap (ca. Zeile 939) das Semikolon wegnehmen
 ```
-
-
-
-#### PHP extension "ssh2"
-Download: https://windows.php.net/downloads/pecl/releases/ssh2/0.12/
-
-add following line to php.ini
-```
-extension=php_ssh2.dll
-```
-
 
 #### Add Virtual Host
 add following code to <b>httpd-vhosts.conf</b><br>

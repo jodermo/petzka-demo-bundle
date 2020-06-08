@@ -1,6 +1,6 @@
 <?php
 
-namespace Petzka\ContaoArticlesToPrintBundle\Module;
+namespace Petzka\DemoBundle\Module;
 
 class PetzkaDemoModule extends \Module
 {
@@ -19,7 +19,7 @@ class PetzkaDemoModule extends \Module
         if (TL_MODE == 'BE') {
             $template = new \BackendTemplate('be_wildcard');
 
-            $template->wildcard = '### '.utf8_strtoupper($GLOBALS['TL_LANG']['FMD']['articlesToPrint'][0]).' ###';
+            $template->wildcard = '### '.utf8_strtoupper($GLOBALS['TL_LANG']['FMD']['demoModule'][0]).' ###';
             $template->title = $this->headline;
             $template->id = $this->id;
             $template->link = $this->name;

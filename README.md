@@ -12,7 +12,13 @@ add code to \<contao root path\>/composer.json
     ],
     "require": {
         "petzka/demo-bundle": "dev-master"
-    }
+    },
+    "config": {
+        "preferred-install": {
+            "petzka/*": "source",
+            "*": "dist"
+        }
+    },
 }
 ```
 
@@ -20,6 +26,7 @@ add code to \<contao root path\>/composer.json
 add code to \<contao root path\>/composer.json
 ```json
 {
+    "...": "...",
     "repositories": [
         {
             "type": "path",
@@ -27,8 +34,15 @@ add code to \<contao root path\>/composer.json
         }
     ],
     "require": {
+        "...": "...",
         "petzka/demo-bundle": "dev-master"
-    }
+    },
+    "config": {
+        "preferred-install": {
+            "petzka/*": "source",
+            "*": "dist"
+        }
+    },
 }
 ```
 

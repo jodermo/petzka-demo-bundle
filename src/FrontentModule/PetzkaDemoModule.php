@@ -8,7 +8,7 @@
  * @license LGPL-3.0-or-later
  */
 
-namespace Petzka\DemoBundle\Module;
+namespace Petzka\DemoBundle\FrontentModule;
 
 class PetzkaDemoModule extends \Module
 {

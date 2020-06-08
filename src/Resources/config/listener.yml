@@ -1,0 +1,63 @@
+services:
+    _defaults:
+        public: true
+
+    _instanceof:
+        Contao\CoreBundle\Framework\FrameworkAwareInterface:
+            calls:
+                - ["setFramework", ["@contao.framework"]]
+
+    petzka_article_categories.listener.ajax:
+        class: Petzka\DemoBundle\EventListener\AjaxListener
+        arguments:
+            - "@monolog.logger.contao"
+
+    petzka_article_categories.listener.change_language:
+        class: Petzka\DemoBundle\EventListener\ChangeLanguageListener
+        arguments:
+            - "@petzka_article_categories.manager"
+
+    petzka_article_categories.listener.insert_tags:
+        class: Petzka\DemoBundle\EventListener\InsertTagsListener
+        arguments:
+            - "@petzka_article_categories.manager"
+
+    petzka_article_categories.listener.news:
+        class: Petzka\DemoBundle\EventListener\NewsListener
+        arguments:
+          - "@petzka_article_categories.news_criteria_builder"
+
+    petzka_article_categories.listener.template:
+        class: Petzka\DemoBundle\EventListener\TemplateListener
+        arguments:
+            - "@petzka_article_categories.manager"
+
+    # Data container
+    petzka_article_categories.listener.data_container.content:
+        class: Petzka\DemoBundle\EventListener\DataContainer\ContentListener
+        arguments:
+            - "@database_connection"
+
+    petzka_article_categories.listener.data_container.feed:
+        class: Petzka\DemoBundle\EventListener\DataContainer\FeedListener
+        arguments:
+            - "@database_connection"
+            - "@session"
+
+    petzka_article_categories.listener.data_container.news_archive:
+        class: Petzka\DemoBundle\EventListener\DataContainer\NewsArchiveListener
+        arguments:
+            - "@petzka_article_categories.permission_checker"
+
+    petzka_article_categories.listener.data_container.news_category:
+        class: Petzka\DemoBundle\EventListener\DataContainer\NewsCategoryListener
+        arguments:
+            - "@database_connection"
+            - "@petzka_article_categories.permission_checker"
+            - "@session"
+
+    petzka_article_categories.listener.data_container.news:
+        class: Petzka\DemoBundle\EventListener\DataContainer\NewsListener
+        arguments:
+            - "@database_connection"
+            - "@petzka_article_categories.permission_checker"

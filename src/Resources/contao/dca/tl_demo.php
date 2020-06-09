@@ -1,6 +1,5 @@
 <?php
 
-
 /*
  * This file is part of [petzka/demo-bundle].
  *
@@ -10,146 +9,132 @@
  */
 
 $GLOBALS['TL_DCA']['tl_demo'] = array(
-  'config' => array
-  (
-    'dataContainer'               => 'Table',
-    'enableVersioning'            => true
-  ),
 
-  'list' => array
-  (
-    'sorting' => array
-    (
-      'mode'                    => 4,
-      'flag'                    => 2,
-      'fields'                  => array('title'),
-      'headerFields'            => array('title','language','tstamp'),
-      'panelLayout'             => 'filter;sort,search,limit',
-      'child_record_class'      => 'no_padding'
-    ),
-    'global_operations' => array
-    (
-      'all' => array
-      (
-        'label'               => &$GLOBALS['TL_LANG']['MSC']['all'],
-        'href'                => 'act=select',
-        'class'               => 'header_edit_all',
-        'attributes'          => 'onclick="Backend.getScrollOffset()" accesskey="e"'
-      ),
-    ),
-    'operations' => array
-    (
-      'edit' => array
-      (
-        'label'               => &$GLOBALS['TL_LANG']['tl_demo']['edit'],
-        'href'                => 'table=tl_content',
-        'icon'                => 'edit.svg'
-      ),
-      'editheader' => array
-      (
-        'label'               => &$GLOBALS['TL_LANG']['tl_demo']['editmeta'],
-        'href'                => 'act=edit',
-        'icon'                => 'header.svg'
-      ),
-      'copy' => array
-      (
-        'label'               => &$GLOBALS['TL_LANG']['tl_demo']['copy'],
-        'href'                => 'act=paste&amp;mode=copy',
-        'icon'                => 'copy.svg'
-      ),
-      'cut' => array
-      (
-        'label'               => &$GLOBALS['TL_LANG']['tl_demo']['cut'],
-        'href'                => 'act=paste&amp;mode=cut',
-        'icon'                => 'cut.svg'
-      ),
-      'delete' => array
-      (
-        'label'               => &$GLOBALS['TL_LANG']['tl_demo']['delete'],
-        'href'                => 'act=delete',
-        'icon'                => 'delete.svg',
-        'attributes'          => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\'))return false;Backend.getScrollOffset()"'
-      ),
-      'toggle' => array
-      (
-        'label'               => &$GLOBALS['TL_LANG']['tl_demo']['toggle'],
-        'icon'                => 'visible.svg',
-        'attributes'          => 'onclick="Backend.getScrollOffset();return AjaxRequest.toggleVisibility(this,%s)"',
-        'button_callback'     => array('sioweb.dummy.dca.tl_demo', 'toggleIcon')
-      ),
-      'show' => array
-      (
-        'label'               => &$GLOBALS['TL_LANG']['tl_demo']['show'],
-        'href'                => 'act=show',
-        'icon'                => 'show.svg'
-      )
-    )
-  ),
+	'config' => array(
+		'dataContainer' => 'Table',
+		'ctable' => array('tl_demo_data'),
+		'switchToEdit' => true,
+		'enableVersioning' => true,
+		'sql' => array(
+			'keys' => array(
+				'id' => 'primary',
+			),
+		),
+	),
 
-  'palettes' => array
-  (
-    '__selector__'                => array('published'),
-    'default'                     => '{title_legend},title,alias;{teaser_legend},description;{publish_legend},published',
-  ),
+	'list' => array(
+		'sorting' => array(
+			'mode' => 1,
+			'fields' => array('name'),
+			'flag' => 1,
+			'panelLayout' => 'filter;search,limit',
+		),
+		'label' => array(
+			'fields' => array('name', 'type'),
+			'format' => '%s <span style="color:#999;padding-left:3px">%s</span>',
+		),
+		'global_operations' => array(
+			'all' => array(
+				'label' => &$GLOBALS['TL_LANG']['MSC']['all'],
+				'href' => 'act=select',
+				'class' => 'header_edit_all',
+				'attributes' => 'onclick="Backend.getScrollOffset()" accesskey="e"',
+			),
+		),
+		'operations' => array(
+			'edit' => array(
+				'label' => &$GLOBALS['TL_LANG']['tl_rocksolid_slider']['edit'],
+				'href' => 'table=tl_demo_data',
+				'icon' => 'edit.gif',
+				'attributes' => 'class="contextmenu"',
+				'button_callback' => array('Petzka\DemoBundle\Demo', 'editIcon'),
+			),
+			'editheader' => array(
+				'label' => &$GLOBALS['TL_LANG']['tl_demo']['editheader'],
+				'href' => 'act=edit',
+				'icon' => 'header.gif',
+				'attributes' => 'class="edit-header"',
+			),
+			'copy' => array(
+				'label' => &$GLOBALS['TL_LANG']['tl_demo']['copy'],
+				'href' => 'act=copy',
+				'icon' => 'copy.gif',
+			),
+			'delete' => array(
+				'label' => &$GLOBALS['TL_LANG']['tl_demo']['delete'],
+				'href' => 'act=delete',
+				'icon' => 'delete.gif',
+				'attributes' => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\'))return false;Backend.getScrollOffset()"',
+			),
+			'show' => array(
+				'label' => &$GLOBALS['TL_LANG']['tl_demo']['show'],
+				'href' => 'act=show',
+				'icon' => 'show.gif',
+			),
+		),
+	),
 
-  'subpalettes' => array
-  (
-    'published'           => 'start,stop'
-  ),
+	'palettes' => array(
+		'__selector__' => array('type'),
+		'default' => '{demo_legend},name,type',
+		'image' => '{demo_legend},name,type,multiSRC',
+	),
 
-  'fields' => array
-  (
-    'title' => array
-    (
-      'label'                   => &$GLOBALS['TL_LANG']['tl_demo']['title'],
-      'inputType'               => 'text',
-      'exclude'                 => true,
-      'filter'                  => true,
-      'sorting'                 => true,
-      'eval'                    => array('mandatory'=>true,'maxlength'=>255,'tl_class'=>'w50','gsIgnore'=>true),
-    ),
-    'alias' => array
-    (
-      'label'                   => &$GLOBALS['TL_LANG']['tl_demo']['alias'],
-      'exclude'                 => true,
-      'inputType'               => 'text',
-      'search'                  => true,
-      'eval'                    => array('rgxp'=>'alias','doNotCopy'=>true,'maxlength'=>128,'tl_class'=>'w50','gsIgnore'=>true),
-      'save_callback' => array
-      (
-        array('sioweb.dummy.dca.tl_demo', 'generateAlias')
-      )
-    ),
-    'description' => array
-    (
-      'label'                   => &$GLOBALS['TL_LANG']['tl_demo']['description'],
-      'exclude'                 => true,
-      'search'                  => true,
-      'inputType'               => 'textarea',
-      'eval'                    => array('rte'=>'tinyMCE','style'=>'height: 50px;','tl_class'=>'clr long','gsIgnore'=>true),
-    ),
-    'published' => array
-    (
-      'label'                   => &$GLOBALS['TL_LANG']['tl_demo']['published'],
-      'exclude'                 => true,
-      'filter'                  => true,
-      'flag'                    => 1,
-      'inputType'               => 'checkbox',
-      'eval'                    => array('submitOnChange'=>true, 'doNotCopy'=>true),
-    ),
-    'start' => array
-    (
-      'label'                   => &$GLOBALS['TL_LANG']['tl_demo']['start'],
-      'exclude'                 => true,
-      'inputType'               => 'text',
-      'eval'                    => array('rgxp'=>'datim', 'datepicker'=>true, 'tl_class'=>'w50 wizard'),
-    ),
-    'stop' => array
-    (
-      'label'                   => &$GLOBALS['TL_LANG']['tl_demo']['stop'],
-      'exclude'                 => true,
-      'inputType'               => 'text',
-      'eval'                    => array('rgxp'=>'datim', 'datepicker'=>true, 'tl_class'=>'w50 wizard'),
-    )
-  )
+	'fields' => array(
+		'id' => array(
+			'sql' => "int(10) unsigned NOT NULL auto_increment",
+		),
+		'tstamp' => array(
+			'sql' => "int(10) unsigned NOT NULL default '0'",
+		),
+		'name' => array(
+			'label' => &$GLOBALS['TL_LANG']['tl_demo']['name'],
+			'exclude' => true,
+			'search' => true,
+			'inputType' => 'text',
+			'eval' => array(
+				'mandatory' => true,
+				'maxlength' => 255,
+				'tl_class' => 'w50',
+			),
+			'sql' => "varchar(255) NOT NULL default ''",
+		),
+		'type' => array(
+			'label' => &$GLOBALS['TL_LANG']['tl_demo']['type'],
+			'exclude' => true,
+			'inputType' => 'select',
+			'options' => array(
+				'content',
+				'image',
+			),
+			'reference' => &$GLOBALS['TL_LANG']['tl_demo']['types'],
+			'eval' => array(
+				'mandatory' => true,
+				'includeBlankOption' => true,
+				'submitOnChange' => true,
+				'tl_class' => 'w50',
+			),
+			'sql' => "varchar(255) NOT NULL default ''",
+		),
+		'multiSRC' => array(
+			'label' => &$GLOBALS['TL_LANG']['tl_demo']['multiSRC'],
+			'exclude' => true,
+			'inputType' => 'fileTree',
+			'eval' => array(
+				'mandatory' => true,
+				'multiple' => true,
+				'fieldType' => 'checkbox',
+				'orderField' => 'orderSRC',
+				'files' => true,
+				'isGallery' => true,
+				'extensions' => \Config::get('validImageTypes'),
+				'tl_class' => 'clr',
+			),
+			'sql' => "blob NULL",
+		),
+		'orderSRC' => array(
+			'label' => &$GLOBALS['TL_LANG']['tl_demo']['orderSRC'],
+			'sql' => "blob NULL",
+		),
+	),
 );

@@ -12,7 +12,7 @@ $GLOBALS['TL_DCA']['tl_article']['palettes']['default'] = str_replace
 (
     'alias',
     'alias,demo_field',
-    $GLOBALS['TL_DCA']['tl_member']['palettes']['default']
+    $GLOBALS['TL_DCA']['tl_article']['palettes']['default']
 );
 
 

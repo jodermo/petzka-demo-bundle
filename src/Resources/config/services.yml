@@ -1,36 +1,9 @@
 services:
-    _defaults:
-        public: true
-
     _instanceof:
         Contao\CoreBundle\Framework\FrameworkAwareInterface:
             calls:
                 - ["setFramework", ["@contao.framework"]]
 
-    petzka_article_categories.manager:
-        class: Petzka\DemoBundle\ArticleCategoriesManager
-
-    petzka_article_categories.picker:
-        class: Petzka\DemoBundle\Picker\ArticleCategoriesPickerProvider
-        public: false
-        arguments:
-            - "@knp_menu.factory"
-            - "@router"
-        calls:
-            - [setTokenStorage, ["@security.token_storage"]]
-            - [setPermissionChecker, ["@petzka_article_categories.permission_checker"]]
-        tags:
-            - { name: contao.picker_provider, priority: 132 }
-
-    petzka_article_categories.permission_checker:
-        class: Petzka\DemoBundle\PermissionChecker
-        public: false
-        arguments:
-            - "@database_connection"
-            - "@security.token_storage"
-
-    petzka_article_categories.article_criteria_builder:
-        class: Petzka\DemoBundle\Criteria\ArticleCriteriaBuilder
-        arguments:
-            - "@database_connection"
-            - "@petzka_article_categories.manager"
+        Symfony\Component\DependencyInjection\ContainerAwareInterface:
+            calls:
+                - ["setContainer", ["@service_container"]]

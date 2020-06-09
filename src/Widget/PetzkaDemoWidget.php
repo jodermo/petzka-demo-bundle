@@ -10,7 +10,7 @@
 
 namespace Codefog\DemoBundle\Widget;
 
-use Petzka\DemoBundle\Model\ArticleCategoryModel;
+use Petzka\DemoBundle\Model\DemoModel;
 use Contao\Database;
 use Contao\Image;
 use Contao\StringUtil;

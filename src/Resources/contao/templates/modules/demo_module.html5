@@ -1,0 +1,14 @@
+<?= $this->title; ?>
+
+<?php $this->extend('block_searchable'); ?>
+
+<?php $this->block('content'); ?>
+
+<?php foreach ($this->images as $key => $image): ?>
+    <?php if (!empty($image->thumb->src)): ?><img src="<?= $image->thumb->src ?>" /><?php endif ?>
+<?php endforeach ?>
+
+<?php $this->endblock(); ?>
+
+Test text
+

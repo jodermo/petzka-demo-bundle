@@ -12,11 +12,11 @@ $GLOBALS['TL_DCA']['tl_demo_data'] = array(
 	'config' => array(
 		'dataContainer' => 'Table',
 		'ptable' => 'tl_demo',
-		'ctable' => array('tl_article'),
+		'ctable' => array('tl_content'),
 		'switchToEdit' => true,
 		'enableVersioning' => true,
 		'onload_callback' => array(
-			array('Petzka\DemoBundle\Demo', 'demoDataOnloadCallback'),
+			array('Petzka\\DemoBundle\\Demo', 'demoDataOnloadCallback'),
 		),
 		'sql' => array(
 			'keys' => array(
@@ -32,8 +32,8 @@ $GLOBALS['TL_DCA']['tl_demo_data'] = array(
 			'fields' => array('sorting'),
 			'headerFields' => array('name'),
 			'panelLayout' => 'limit',
-			'header_callback' => array('Petzka\DemoBundle\Demo', 'headerCallback'),
-			'child_record_callback' => array('Petzka\DemoBundle\Demo', 'listData'),
+			'header_callback' => array('Petzka\\DemoBundle\\Demo', 'headerCallback'),
+			'child_record_callback' => array('Petzka\\DemoBundle\\Demo', 'listData'),
 			'child_record_class' => 'no_padding',
 		),
 		'global_operations' => array(
@@ -50,7 +50,7 @@ $GLOBALS['TL_DCA']['tl_demo_data'] = array(
 				'href' => 'table=tl_content',
 				'icon' => 'edit.gif',
 				'attributes' => 'class="contextmenu"',
-				'button_callback' => array('Petzka\DemoBundle\Demo', 'editDataIcon'),
+				'button_callback' => array('Petzka\\DemoBundle\\Demo', 'editDataIcon'),
 			),
 			'editheader' => array(
 				'label' => &$GLOBALS['TL_LANG']['tl_demo_data']['editheader'],
@@ -78,7 +78,7 @@ $GLOBALS['TL_DCA']['tl_demo_data'] = array(
 				'label' => &$GLOBALS['TL_LANG']['tl_demo_data']['toggle'],
 				'icon' => 'visible.gif',
 				'attributes' => 'onclick="Backend.getScrollOffset();return AjaxRequest.toggleVisibility(this,%s)"',
-				'button_callback' => array('Petzka\DemoBundle\Demo', 'toggleIcon'),
+				'button_callback' => array('Petzka\\DemoBundle\\Demo', 'toggleIcon'),
 			),
 			'show' => array(
 				'label' => &$GLOBALS['TL_LANG']['tl_demo_data']['show'],

@@ -43,11 +43,11 @@ $GLOBALS['TL_DCA']['tl_demo'] = array(
 		),
 		'operations' => array(
 			'edit' => array(
-				'label' => &$GLOBALS['TL_LANG']['tl_rocksolid_slider']['edit'],
+				'label' => &$GLOBALS['TL_LANG']['tl_demo']['edit'],
 				'href' => 'table=tl_demo_data',
 				'icon' => 'edit.gif',
 				'attributes' => 'class="contextmenu"',
-				'button_callback' => array('Petzka\DemoBundle\Demo', 'editIcon'),
+				'button_callback' => array('Petzka\\DemoBundle\\Demo', 'editIcon'),
 			),
 			'editheader' => array(
 				'label' => &$GLOBALS['TL_LANG']['tl_demo']['editheader'],

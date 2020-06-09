@@ -14,7 +14,7 @@ use Contao\Database;
 use Contao\Date;
 use Contao\FilesModel;
 use Contao\Model\Collection;
-use Contao\NewsModel;
+use Contao\ArticleModel;
 use Haste\Model\Model;
 use Haste\Model\Relations;
 
@@ -22,7 +22,7 @@ class ParentModel extends \Contao\Model
 {
 }
 
-class NewsCategoryModel extends ParentModel
+class ArticleCategoryModel extends ParentModel
 {
     /**
      * Table name.
@@ -71,7 +71,7 @@ class NewsCategoryModel extends ParentModel
     }
 
     /**
-     * Find published news categories by news criteria.
+     * Find published article categories by article criteria.
      *
      * @param array $archives
      * @param array $ids
@@ -90,11 +90,11 @@ class NewsCategoryModel extends ParentModel
         $values = [];
 
         // Start sub select query for relations
-        $subSelect = "SELECT {$relation['related_field']} 
-FROM {$relation['table']} 
-WHERE {$relation['reference_field']} IN (SELECT id FROM tl_news WHERE pid IN (".\implode(',', \array_map('intval', $archives)).')';
+        $subSelect = "SELECT {$relation['related_field']}
+FROM {$relation['table']}
+WHERE {$relation['reference_field']} IN (SELECT id FROM tl_article WHERE pid IN (".\implode(',', \array_map('intval', $archives)).')';
 
-        // Include only the published news items
+        // Include only the published article items
         if (!BE_USER_LOGGED_IN) {
             $time = Date::floorToMinute();
             $subSelect .= ' AND (start=? OR start<=?) AND (stop=? OR stop>?) AND published=?';
@@ -135,7 +135,7 @@ WHERE {$relation['reference_field']} IN (SELECT id FROM tl_news WHERE pid IN (".
      *
      * @param string $idOrAlias
      *
-     * @return NewsCategoryModel|null
+     * @return ArticleCategoryModel|null
      */
     public static function findPublishedByIdOrAlias($idOrAlias)
     {
@@ -167,7 +167,7 @@ WHERE {$relation['reference_field']} IN (SELECT id FROM tl_news WHERE pid IN (".
     }
 
     /**
-     * Find published news categories.
+     * Find published article categories.
      *
      * @return Collection|null
      */
@@ -184,7 +184,7 @@ WHERE {$relation['reference_field']} IN (SELECT id FROM tl_news WHERE pid IN (".
     }
 
     /**
-     * Find published news categories by parent ID and IDs.
+     * Find published article categories by parent ID and IDs.
      *
      * @param array    $ids
      * @param int|null $pid
@@ -216,7 +216,7 @@ WHERE {$relation['reference_field']} IN (SELECT id FROM tl_news WHERE pid IN (".
     }
 
     /**
-     * Find published news categories by parent ID.
+     * Find published article categories by parent ID.
      *
      * @param int $pid
      *
@@ -237,15 +237,15 @@ WHERE {$relation['reference_field']} IN (SELECT id FROM tl_news WHERE pid IN (".
     }
 
     /**
-     * Find the published categories by news.
+     * Find the published categories by article.
      *
-     * @param int|array $newsId
+     * @param int|array $articleId
      *
      * @return Collection|null
      */
-    public static function findPublishedByNews($newsId)
+    public static function findPublishedByArticle($articleId)
     {
-        if (0 === \count($ids = Model::getRelatedValues('tl_news', 'categories', $newsId))) {
+        if (0 === \count($ids = Model::getRelatedValues('tl_article', 'categories', $articleId))) {
             return null;
         }
 
@@ -262,7 +262,7 @@ WHERE {$relation['reference_field']} IN (SELECT id FROM tl_news WHERE pid IN (".
     }
 
     /**
-     * Count the published news by archives.
+     * Count the published article by archives.
      *
      * @param array    $archives
      * @param int|null $category
@@ -274,7 +274,7 @@ WHERE {$relation['reference_field']} IN (SELECT id FROM tl_news WHERE pid IN (".
      */
     public static function getUsage(array $archives = [], $category = null, $includeSubcategories = false, array $cumulativeCategories = [], $unionFiltering = false)
     {
-        $t = NewsModel::getTable();
+        $t = ArticleModel::getTable();
 
         // Include the subcategories
         if (null !== $category && $includeSubcategories) {
@@ -294,13 +294,13 @@ WHERE {$relation['reference_field']} IN (SELECT id FROM tl_news WHERE pid IN (".
                     $cumulativeCategory = static::getAllSubcategoriesIds($cumulativeCategory);
                 }
 
-                $newsIds = Model::getReferenceValues($t, 'categories', $cumulativeCategory);
-                $newsIds = array_map('intval', $newsIds);
+                $articleIds = Model::getReferenceValues($t, 'categories', $cumulativeCategory);
+                $articleIds = array_map('intval', $articleIds);
 
                 if ($cumulativeIds === null) {
-                    $cumulativeIds = $newsIds;
+                    $cumulativeIds = $articleIds;
                 } else {
-                    $cumulativeIds = $unionFiltering ? array_merge($cumulativeIds, $newsIds) : array_intersect($cumulativeIds, $newsIds);
+                    $cumulativeIds = $unionFiltering ? array_merge($cumulativeIds, $articleIds) : array_intersect($cumulativeIds, $articleIds);
                 }
             }
 
@@ -325,7 +325,7 @@ WHERE {$relation['reference_field']} IN (SELECT id FROM tl_news WHERE pid IN (".
             $values = \array_merge($values, ['', $time, '', $time + 60, 1]);
         }
 
-        return NewsModel::countBy($columns, $values);
+        return ArticleModel::countBy($columns, $values);
     }
 
     /**

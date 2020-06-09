@@ -1,11 +1,11 @@
 <?php
 
 /*
- * News Categories Bundle for Contao Open Source CMS.
+ * This file is part of [petzka/demo-bundle].
  *
- * @copyright  Copyright (c) 2017, Codefog
- * @author     Codefog <https://codefog.pl>
- * @license    MIT
+ * (c) Moritz Petzka
+ *
+ * @license LGPL-3.0-or-later
  */
 
 namespace Codefog\DemoBundle\Widget;

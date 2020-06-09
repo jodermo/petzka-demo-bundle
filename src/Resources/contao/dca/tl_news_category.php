@@ -8,7 +8,6 @@
  * @license LGPL-3.0-or-later
  */
 
-
 \Contao\System::loadLanguageFile('tl_article_archive');
 
 /*

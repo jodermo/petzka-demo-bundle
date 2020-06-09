@@ -6,18 +6,17 @@
  *
  * @license LGPL-3.0-or-later
  */
-
 $GLOBALS['TL_DCA']['tl_article']['palettes']['default'] = str_replace
 (
     'author',
-    'author,article_custom_value',
+    'author,article_category',
     $GLOBALS['TL_DCA']['tl_article']['palettes']['default']
 );
 
 // Hinzufügen der Feld-Konfiguration
-$GLOBALS['TL_DCA']['tl_article']['fields']['article_custom_value'] = array
+$GLOBALS['TL_DCA']['tl_article']['fields']['article_categories'] = array
 (
-    'label'     => &$GLOBALS['TL_LANG']['tl_article']['article_custom_value'],
+    'label'     => &$GLOBALS['TL_LANG']['tl_article']['article_categories'],
     'exclude'   => true,
     'inputType' => 'text',
     'eval'      => array('mandatory'=>true, 'rgxp'=>'digit', 'maxlength'=>8),

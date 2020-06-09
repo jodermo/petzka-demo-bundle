@@ -1,11 +1,11 @@
 <?php
 
 /*
- * Article Categories bundle for Contao Open Source CMS.
+ * This file is part of [petzka/demo-bundle].
  *
- * @copyright  Copyright (c) 2017, Petzka
- * @author     Petzka <https://petzka.pl>
- * @license    MIT
+ * (c) Moritz Petzka
+ *
+ * @license LGPL-3.0-or-later
  */
 
 \Contao\CoreBundle\DataContainer\PaletteManipulator::create()

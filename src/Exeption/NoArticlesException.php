@@ -10,6 +10,6 @@
 
 namespace Petzka\DemoBundle\Exception;
 
-class NoNewsException extends \RuntimeException
+class NoArticleException extends \RuntimeException
 {
 }

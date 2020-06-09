@@ -52,14 +52,6 @@ $GLOBALS['TL_HOOKS']['articleListFetchItems'][] = ['petzka_article_categories.li
 $GLOBALS['TL_HOOKS']['parseArticles'][] = ['petzka_article_categories.listener.template', 'onParseArticles'];
 $GLOBALS['TL_HOOKS']['replaceInsertTags'][] = ['petzka_article_categories.listener.insert_tags', 'onReplace'];
 
-if (false !== ($index = \array_search(['Article', 'generateFeeds'], $GLOBALS['TL_HOOKS']['generateXmlFiles'], true))) {
-    $GLOBALS['TL_HOOKS']['generateXmlFiles'][$index][0] = '\Petzka\DemoBundle\FeedGenerator';
-}
-
-/*
- * Cron jobs
- */
-$GLOBALS['TL_CRON']['daily']['generateArticleFeeds'][0] = '\Petzka\DemoBundle\FeedGenerator';
 
 /*
  * Add permissions

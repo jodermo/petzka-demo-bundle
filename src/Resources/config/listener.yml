@@ -22,10 +22,10 @@ services:
         arguments:
             - "@petzka_article_categories.manager"
 
-    petzka_article_categories.listener.news:
-        class: Petzka\DemoBundle\EventListener\NewsListener
+    petzka_article_categories.listener.article:
+        class: Petzka\DemoBundle\EventListener\ArticleListener
         arguments:
-          - "@petzka_article_categories.news_criteria_builder"
+          - "@petzka_article_categories.article_criteria_builder"
 
     petzka_article_categories.listener.template:
         class: Petzka\DemoBundle\EventListener\TemplateListener
@@ -38,26 +38,16 @@ services:
         arguments:
             - "@database_connection"
 
-    petzka_article_categories.listener.data_container.feed:
-        class: Petzka\DemoBundle\EventListener\DataContainer\FeedListener
-        arguments:
-            - "@database_connection"
-            - "@session"
 
-    petzka_article_categories.listener.data_container.news_archive:
-        class: Petzka\DemoBundle\EventListener\DataContainer\NewsArchiveListener
-        arguments:
-            - "@petzka_article_categories.permission_checker"
-
-    petzka_article_categories.listener.data_container.news_category:
-        class: Petzka\DemoBundle\EventListener\DataContainer\NewsCategoryListener
+    petzka_article_categories.listener.data_container.article_category:
+        class: Petzka\DemoBundle\EventListener\DataContainer\ArticleCategoryListener
         arguments:
             - "@database_connection"
             - "@petzka_article_categories.permission_checker"
             - "@session"
 
-    petzka_article_categories.listener.data_container.news:
-        class: Petzka\DemoBundle\EventListener\DataContainer\NewsListener
+    petzka_article_categories.listener.data_container.article:
+        class: Petzka\DemoBundle\EventListener\DataContainer\ArticleListener
         arguments:
             - "@database_connection"
             - "@petzka_article_categories.permission_checker"

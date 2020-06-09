@@ -80,15 +80,13 @@ class Demo extends \Backend
     	 */
     	public function demoDataOnloadCallback($dc)
     	{
-    		if (!static::checkLicense()) {
-    			// Stuff onload
-    		}
+
     	}
 
 	/**
 	 * DCA Header callback
 	 *
-	 * Redirects to the parent data if type is not "content"
+	 * Redirects to the parent data if type is not "default"
 	 *
 	 * @param  array          $headerFields label value pairs of header fields
 	 * @param  \DataContainer $dc           data container
@@ -101,8 +99,8 @@ class Demo extends \Backend
 			->limit(1)
 			->execute(CURRENT_ID);
 
-		if ($sliderData->numRows && $sliderData->type !== 'content') {
-			$this->redirect('contao/main.php?do=petzka_demo&act=edit&id=' . CURRENT_ID . '&ref=' . \Input::get('ref') . '&rt=' . REQUEST_TOKEN);
+		if ($sliderData->numRows && $sliderData->type !== 'default') {
+			$this->redirect('contao/main.php?do=demo&act=edit&id=' . CURRENT_ID . '&ref=' . \Input::get('ref') . '&rt=' . REQUEST_TOKEN);
 		}
 
 		return $headerFields;
@@ -111,7 +109,7 @@ class Demo extends \Backend
     /**
 	 * DCA Header callback
 	 *
-	 * Redirects to the parent slide if type is not "content"
+	 * Redirects to the parent slide if type is not "default"
 	 *
 	 * @param  array          $headerFields label value pairs of header fields
 	 * @param  \DataContainer $dc           data container
@@ -124,8 +122,8 @@ class Demo extends \Backend
 			->limit(1)
 			->execute(CURRENT_ID);
 
-		if ($slideData->numRows && $slideData->type !== 'content') {
-			$this->redirect('contao/main.php?do=petzka_demo&table=tl_demo_data&act=edit&id=' . CURRENT_ID . '&ref=' . \Input::get('ref') . '&rt=' . REQUEST_TOKEN);
+		if ($slideData->numRows && $slideData->type !== 'default') {
+			$this->redirect('contao/main.php?do=demo&table=tl_demo_data&act=edit&id=' . CURRENT_ID . '&ref=' . \Input::get('ref') . '&rt=' . REQUEST_TOKEN);
 		}
 
 		return $headerFields;

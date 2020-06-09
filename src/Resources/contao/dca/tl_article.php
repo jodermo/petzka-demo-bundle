@@ -10,19 +10,21 @@
 
 $GLOBALS['TL_DCA']['tl_article']['palettes']['default'] = str_replace
 (
-    'alias',
-    'alias,demo_field',
+    '{expert_legend}',
+    '{demo_legend},demo_id;{expert_legend}',
     $GLOBALS['TL_DCA']['tl_article']['palettes']['default']
 );
 
 
-$GLOBALS['TL_DCA']['tl_article']['fields']['demo_field'] = array
-(
-    'label'     => &$GLOBALS['TL_LANG']['tl_member']['demo_field'],
-    'exclude'   => true,
-    'inputType' => 'text',
-    'eval'      => array('mandatory'=>true, 'rgxp'=>'digit', 'maxlength'=>8),
-    'sql'       => "varchar(8) NOT NULL default ''"
+$GLOBALS['TL_DCA']['tl_article']['fields']['demo_id'] = array(
+	'label' => &$GLOBALS['TL_LANG']['tl_module']['demo_id'],
+	'exclude' => true,
+	'inputType' => 'select',
+	'options_callback' => array('Petzka\\DemoBundle\\Demo', 'getDemoIds'),
+	'eval' => array(
+		'includeBlankOption' => true,
+		'mandatory' => true,
+	),
+	'sql' => "int(10) unsigned NOT NULL default '0'",
 );
-
 

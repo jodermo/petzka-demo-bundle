@@ -10,10 +10,12 @@
 
 
 $GLOBALS['TL_MODELS']['tl_demo'] = 'Petzka\DemoBundle\Model\DemoModel';
+$GLOBALS['TL_MODELS']['tl_demo_data'] = 'Petzka\DemoBundle\Model\DemoDataModel';
 
 $GLOBALS['BE_MOD']['demo_bundle']['demo'] = array(
 	'tables' => array(
-		'tl_demo'
+		'tl_demo',
+		'tl_demo_data'
 	),
 	'icon' => 'bundles/petzkademo/img/icon.png',
 );
@@ -24,12 +26,14 @@ array_insert($GLOBALS['BE_FFL'], 2, array(
 
 array_insert($GLOBALS['FE_MOD'], 2, array(
 	'demo_bundle' => array(
-		'demo_module' => 'Petzka\DemoBundle\Module\PetzkaDemoModule',
+	    'demo_module' => 'Petzka\DemoBundle\Module\Demo',
+		'mod_demoModule' => 'Petzka\DemoBundle\FrontentModule\PetzkaDemoModule',
 	)
 ));
 
 array_insert($GLOBALS['TL_CTE'], 2, array(
 	'demo_bundle' => array(
+	    'demo_module' => 'Petzka\DemoBundle\Module\Demo',
         'demo_element' => 'Petzka\DemoBundle\ContentElement\PetzkaDemoContentElement',
     )
 ));

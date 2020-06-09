@@ -104,7 +104,7 @@ $GLOBALS['TL_DCA']['tl_demo'] = array(
 			'exclude' => true,
 			'inputType' => 'select',
 			'options' => array(
-				'content',
+				'default',
 				'image',
 			),
 			'reference' => &$GLOBALS['TL_LANG']['tl_demo']['types'],

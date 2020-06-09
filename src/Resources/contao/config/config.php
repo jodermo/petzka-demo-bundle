@@ -8,8 +8,28 @@
  * @license LGPL-3.0-or-later
  */
 
-$GLOBALS['BE_FFL']['demoWidget'] = 'Petzka\DemoBundle\Widget\PetzkaDemoWidget';
 
-$GLOBALS['FE_MOD']['miscellaneous']['demoModule'] = 'Petzka\DemoBundle\Module\PetzkaDemoModule';
+$GLOBALS['TL_MODELS']['tl_demo'] = 'Petzka\DemoBundle\Model\DemoModel';
 
-$GLOBALS['TL_CTE']['miscellaneous']['demoElement'] = 'Petzka\DemoBundle\ContentElement\PetzkaDemoContentElement';
+$GLOBALS['BE_MOD']['demo_bundle']['demo'] = array(
+	'tables' => array(
+		'tl_demo'
+	),
+	'icon' => 'bundles/petzkademo/img/icon.png',
+);
+
+array_insert($GLOBALS['BE_FFL'], 2, array(
+	'demo_widget' => 'Petzka\DemoBundle\Widget\PetzkaDemoWidget',
+));
+
+array_insert($GLOBALS['FE_MOD'], 2, array(
+	'demo_bundle' => array(
+		'demo_module' => 'Petzka\DemoBundle\Module\PetzkaDemoModule',
+	)
+));
+
+array_insert($GLOBALS['TL_CTE'], 2, array(
+	'demo_bundle' => array(
+        'demo_element' => 'Petzka\DemoBundle\ContentElement\PetzkaDemoContentElement',
+    )
+));

@@ -10,14 +10,12 @@
  */
 
 $GLOBALS['TL_DCA']['tl_demo'] = array(
-  // Config
   'config' => array
   (
     'dataContainer'               => 'Table',
     'enableVersioning'            => true
   ),
 
-  // List
   'list' => array
   (
     'sorting' => array
@@ -88,7 +86,6 @@ $GLOBALS['TL_DCA']['tl_demo'] = array(
     )
   ),
 
-  // Palettes
   'palettes' => array
   (
     '__selector__'                => array('published'),
@@ -100,7 +97,6 @@ $GLOBALS['TL_DCA']['tl_demo'] = array(
     'published'           => 'start,stop'
   ),
 
-  // Fields
   'fields' => array
   (
     'title' => array

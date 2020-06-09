@@ -23,7 +23,7 @@ services:
             - "@petzka_article_categories.manager"
 
     petzka_article_categories.listener.article:
-        class: Petzka\DemoBundle\EventListener\ArticleListener
+        class: use Petzka\DemoBundle\EventListener\ArticleListener
         arguments:
           - "@petzka_article_categories.article_criteria_builder"
 
@@ -38,7 +38,6 @@ services:
         arguments:
             - "@database_connection"
 
-
     petzka_article_categories.listener.data_container.article_category:
         class: Petzka\DemoBundle\EventListener\DataContainer\ArticleCategoryListener
         arguments:
@@ -47,7 +46,7 @@ services:
             - "@session"
 
     petzka_article_categories.listener.data_container.article:
-        class: Petzka\DemoBundle\EventListener\DataContainer\ArticleListener
+        class: use Petzka\DemoBundle\EventListener\DataContainer\ArticleListener
         arguments:
             - "@database_connection"
             - "@petzka_article_categories.permission_checker"

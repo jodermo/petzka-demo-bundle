@@ -59,13 +59,6 @@ class ArticleListener implements FrameworkAwareInterface
         /** @var Input $input */
         $input = $this->framework->getAdapter(Input::class);
 
-        // Handle the edit all modes differently
-        if ($input->get('act') === 'editAll' || $input->get('act') === 'overrideAll') {
-            $categories = $this->db->fetchColumn('SELECT categories FROM tl_article_archive WHERE limitCategories=1 AND id=?', [$dc->id]);
-        } else {
-            $categories = $this->db->fetchColumn('SELECT categories FROM tl_article_archive WHERE limitCategories=1 AND id=(SELECT pid FROM tl_article WHERE id=?)', [$dc->id]);
-        }
-
         if (!$categories || 0 === \count($categories = StringUtil::deserialize($categories, true))) {
             return;
         }

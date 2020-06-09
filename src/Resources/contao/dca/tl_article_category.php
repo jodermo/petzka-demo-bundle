@@ -8,7 +8,7 @@
  * @license LGPL-3.0-or-later
  */
 
-\Contao\System::loadLanguageFile('tl_article_archive');
+\Contao\System::loadLanguageFile('tl_article_category');
 
 /*
  * Table tl_article_category
@@ -16,16 +16,15 @@
 $GLOBALS['TL_DCA']['tl_article_category'] = [
     // Config
     'config' => [
-        'label' => $GLOBALS['TL_LANG']['tl_article_archive']['categories'][0],
+        'label' => $GLOBALS['TL_LANG']['tl_article_category']['categories'][0],
         'dataContainer' => 'Table',
         'enableVersioning' => true,
         'backlink' => 'do=article',
         'onload_callback' => [
-            ['petzka_article_categories.listener.data_container.feed', 'onLoadCallback'],
             ['petzka_article_categories.listener.data_container.article_category', 'onLoadCallback'],
         ],
         'onsubmit_callback' => [
-            ['petzka_article_categories.listener.data_container.feed', 'onSubmitCallback'],
+           // ['petzka_article_categories.listener.data_container.feed', 'onSubmitCallback'],
         ],
         'sql' => [
             'keys' => [

@@ -30,29 +30,6 @@ $GLOBALS['TL_DCA']['tl_module']['subpalettes']['article_relatedCategories'] = 'a
     ->addField('article_categoryImgSize', 'image_legend', \Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
     ->applyToPalette('articlelist', 'tl_module');
 
-\Contao\CoreBundle\DataContainer\PaletteManipulator::create()
-    ->addField('article_filterCategories', 'config_legend', \Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
-    ->addField('article_filterCategoriesCumulative', 'config_legend', \Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
-    ->addField('article_filterCategoriesUnion', 'config_legend', \Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
-    ->addField('article_includeSubcategories', 'config_legend', \Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
-    ->addField('article_filterDefault', 'config_legend', \Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
-    ->addField('article_filterPreserve', 'config_legend', \Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
-    ->addField('article_categoryImgSize', 'image_legend', \Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
-    ->applyToPalette('articlearchive', 'tl_module')
-    ->applyToPalette('articlemenu', 'tl_module');
-
-    /*
-\Contao\CoreBundle\DataContainer\PaletteManipulator::create()
-    ->addLegend('redirect_legend', 'config_legend', \Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_AFTER)
-    ->addField('article_categoryFilterPage', 'redirect_legend', \Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
-    ->applyToPalette('articlearchive', 'tl_module');
-    */
-
-\Contao\CoreBundle\DataContainer\PaletteManipulator::create()
-    ->addLegend('redirect_legend', 'config_legend', \Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_AFTER)
-    ->addField('article_categoryFilterPage', 'redirect_legend', \Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
-    ->addField('article_categoryImgSize', 'image_legend', \Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
-    ->applyToPalette('articlereader', 'tl_module');
 
 /*
  * Add fields

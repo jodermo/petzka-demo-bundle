@@ -14,8 +14,8 @@ use Contao\ContentElement;
 
 class PetzkaDemoContentElement extends \ContentModule
 {
-  protected $strTemplate = 'dummy_default';
-  
+  protected $strTemplate = 'demo_element';
+
   public function generate() {
     return parent::generate();
   }

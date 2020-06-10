@@ -12,6 +12,6 @@ $strName = 'tl_form_field';
 
 $GLOBALS['TL_LANG']['FFL']['demo_value'] = array('Demo Auswahl', 'Demo Bundle Widget');
 
-$GLOBALS['TL_LANG'][$strName]['is_demo'] = array('Chosen anzeigen', 'Bitte wählen Sie, ob im Auswahlfeld Chosen angezeigt werden soll.');
+$GLOBALS['TL_LANG'][$strName]['is_demo'] = array('Demo Value', 'Bitte wählen Sie');
 
 $GLOBALS['TL_LANG'][$strName]['demo_legend']   = 'Demo';

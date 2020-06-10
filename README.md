@@ -72,7 +72,7 @@ Then rename all files and/or the references to DemoBundle in `src/` and `tests/`
 
 <br>
 
-#### How to work with Contao 4 and Troubleshooting <br> [jodermo/contao-4-documentation](https://github.com/jodermo/contao-4-documentation)
+#### How to work with Contao 4 and Troubleshooting <br> [jodermo.github.io/contao-4-documentation/](https://jodermo.github.io/contao-4-documentation/)
 
 <br>
 

@@ -1,6 +1,16 @@
 # Contao 4 - Demo Bundle
+##### This demo is a basic Contao/Symfony Bundle
+###### with examples for<br>
+• Backend Module<br>
+• Backend Widget<br>
+• Data Handling<br>
+• Content Element<br>
+• Frontend Module<br>
+• Frontend Widget<br>
+• Model<br>
+• Service<br>
 
-## Add Bundle as Git-Repository<br>
+## Add bundle as Git-Repository<br>
 add code to \<contao root path\>/composer.json
 ```json
 {
@@ -22,7 +32,7 @@ add code to \<contao root path\>/composer.json
 }
 ```
 
-## Add Bundle as local Repository<br>
+## Add bundle as local repository<br>
 add code to \<contao root path\>/composer.json
 ```json
 {
@@ -55,55 +65,22 @@ add code to \<contao root path\>/composer.json
     .php_cs.php
     composer.json
     phpunit.xml.dist
-    
-Then rename the following files and/or the references to DemoBundle in the following files:
 
-    src/ContaoManager/Plugin.php
-    src/DependencyInjection/PetzkaDemoExtension.php
-    src/PetzkaDemoBundle.php
-    tests/PetzkaDemoBundleTest.php
+Then rename all files and/or the references to DemoBundle in `src/` and `tests/`:
 
-#### I copied some stuff from here
+<br>
+
+#### How to work with Contao 4 and Troubleshooting <br> [jodermo/contao-4-documentation](https://github.com/jodermo/contao-4-documentation)
+
+<br>
+
+#### For this bundle, I used some informations and stuff from this pages:
 • Contao Hello World Bundle Tutorial:<br>
     [gist.github.com/joergmoldenhauer/contao-hello-world-bundle-tutorial.md](https://gist.github.com/joergmoldenhauer/90fa0c9c6af2c7a36bdbc2d039095142)<br>
 • Contao 4 skeleton bundle:<br>
     [github.com/contao/skeleton-bundle](https://github.com/contao/skeleton-bundle)
 
 
-
-# Local Contao CMS
-#### XAMPP (Windows 10):
-
-##### PHP configuration
-change following lines in php.ini
-```
-file_uploads = On (ca. Zeile 833)
-upload_temp_dir = "C:\xamp\tmp" (ca. Zeile 838)
-upload_max_filesize = 256M (ca. Zeile 842)
-allow_url_fopen = On (ca. Zeile 853)
-max_execution_time = 360 (ca. Zeile 386)
-memory_limit = -1 (ca. Zeile 407)
-post_max_size = 128M (ca. Zeile 690)
-extension=intl (ca. Zeile 917) das Semikolon wegnehmen
-extension=soap (ca. Zeile 939) das Semikolon wegnehmen
-```
-
-#### Add Virtual Host
-add following code to <b>httpd-vhosts.conf</b><br>
-(in \<xampp path\>/apache/conf/extra/)
-```
-<VirtualHost *:80>
-  DocumentRoot "<project path>\web"
-  ServerName contao-demo
-  <Directory "<project path>\web">
-    Options +FollowSymlinks
-    AllowOverride All
-    Require all granted
-  </Directory>
-
-  ErrorLog "D:\xampp\apache\logs\contao-demo_error.log"
-  CustomLog "D:\xampp\apache\logs\contao-demo_access.log" combined
-</VirtualHost>
-```
+Thanks, guys!
 
 

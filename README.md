@@ -1,3 +1,5 @@
+![GitHub Logo](./repo/img/logo.png)
+
 # Contao 4 - Demo Bundle
 ##### This demo is a basic Contao/Symfony Bundle
 ###### with examples for<br>

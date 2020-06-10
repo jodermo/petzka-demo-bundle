@@ -138,10 +138,10 @@ class Demo extends \Backend
 	public function getDemoIds()
 	{
 		$arrResult = array();
-		$objResult = $this->Database->execute("SELECT id, title FROM tl_demo ORDER BY title");
+		$objResult = $this->Database->execute("SELECT id, name FROM tl_demo ORDER BY name");
 
 		while ($objResult->next()) {
-			$arrResult[$objResult->id] = $objResult->title;
+			$arrResult[$objResult->id] = $objResult->name;
 		}
 
 		return $arrResult;

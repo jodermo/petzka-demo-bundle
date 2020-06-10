@@ -26,14 +26,14 @@ $GLOBALS['TL_LANG']['tl_demo']['show'][0] = 'Details';
 $GLOBALS['TL_LANG']['tl_demo']['show'][1] = 'Die Details von ID %s anzeigen';
 
 
-$GLOBALS['TL_LANG']['tl_demor']['demo_legend'] = 'Demo';
-$GLOBALS['TL_LANG']['tl_demor']['name'][0] = 'Name';
-$GLOBALS['TL_LANG']['tl_demor']['name'][1] = '';
-$GLOBALS['TL_LANG']['tl_demor']['type'][0] = 'Typ';
-$GLOBALS['TL_LANG']['tl_demor']['type'][1] = 'Wählen Sie Bild-Slider aus um einen reinen Bilderslider zu erstellen oder Inhalts-Slider um verschiedene Inhalte einzufügen';
-$GLOBALS['TL_LANG']['tl_demor']['types']['default'] = 'Standart';
-$GLOBALS['TL_LANG']['tl_demor']['types']['image'] = 'Mit Bildern';
-$GLOBALS['TL_LANG']['tl_demor']['multiSRC'][0] = 'Bilder wählen';
-$GLOBALS['TL_LANG']['tl_demor']['multiSRC'][1] = 'Wählen Sie hier Bilder oder Ordner aus um einen reinen Bilderslider zu erstellen.';
-$GLOBALS['TL_LANG']['tl_demor']['orderSRC'][0] = 'Bildsortierung';
-$GLOBALS['TL_LANG']['tl_demor']['orderSRC'][1] = '';
+$GLOBALS['TL_LANG']['tl_demo']['demo_legend'] = 'Demo';
+$GLOBALS['TL_LANG']['tl_demo']['name'][0] = 'Name';
+$GLOBALS['TL_LANG']['tl_demo']['name'][1] = '';
+$GLOBALS['TL_LANG']['tl_demo']['type'][0] = 'Typ';
+$GLOBALS['TL_LANG']['tl_demo']['type'][1] = 'Wählen Sie Bild-Slider aus um einen reinen Bilderslider zu erstellen oder Inhalts-Slider um verschiedene Inhalte einzufügen';
+$GLOBALS['TL_LANG']['tl_demo']['types']['default'] = 'Standart';
+$GLOBALS['TL_LANG']['tl_demo']['types']['image'] = 'Mit Bildern';
+$GLOBALS['TL_LANG']['tl_demo']['multiSRC'][0] = 'Bilder wählen';
+$GLOBALS['TL_LANG']['tl_demo']['multiSRC'][1] = 'Wählen Sie hier Bilder oder Ordner aus um einen reinen Bilderslider zu erstellen.';
+$GLOBALS['TL_LANG']['tl_demo']['orderSRC'][0] = 'Bildsortierung';
+$GLOBALS['TL_LANG']['tl_demo']['orderSRC'][1] = '';

@@ -10,8 +10,8 @@
 
 $GLOBALS['TL_DCA']['tl_module']['palettes']['default'] = str_replace
 (
-    '{expert_legend}',
-    '{demo_legend},demo_id;{expert_legend}',
+    'type;',
+    'type;{demo_legend},demo_id;',
     $GLOBALS['TL_DCA']['tl_module']['palettes']['default']
 );
 

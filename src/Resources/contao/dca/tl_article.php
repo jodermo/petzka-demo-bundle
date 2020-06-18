@@ -23,7 +23,7 @@ $GLOBALS['TL_DCA']['tl_article']['fields']['demo_id'] = array(
 	'options_callback' => array('Petzka\\DemoBundle\\Demo', 'getDemoIds'),
 	'eval' => array(
 		'includeBlankOption' => true,
-		'mandatory' => true,
+		'mandatory' => false,
 	),
 	'sql' => "int(10) unsigned NOT NULL default '0'",
 );
